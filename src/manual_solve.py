@@ -10,8 +10,10 @@ import re
 ### result. Name them according to the task ID as in the three
 ### examples below. Delete the three examples. The tasks you choose
 ### must be in the data/training directory, not data/evaluation.
-def solve_6a1e5592(x):
-    return x
+def solve_0d3d703e(x):
+    solve_key = {3:4, 4:3, 1:5, 2:6, 8:9, 5:1, 6:2, 9:8}
+    row, col = x.shape
+    return np.array([solve_key[each] for item in x for each in item]).reshape(row, col)
 
 def solve_b2862040(x):
     return x
