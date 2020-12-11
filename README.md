@@ -75,5 +75,5 @@ When you're done with a task, use the "load task" button to open a new task.
 <img src="https://github.com/bikky-kumar/ARC/blob/master/images/253bf280.JPG" width="450" height="500" />
 
 #### Task 3 - 253bf280
-<img src="https://github.com/bikky-kumar/ARC/blob/master/images/3ac3eb23.JPG" width="450" height="450" />
+<img src="https://github.com/bikky-kumar/ARC/blob/master/images/3ac3eb23.JPG" width="300" height="300" />
 
