@@ -25,8 +25,11 @@ def solve_0d3d703e(x):
             [[4 5 6]
             [4 5 6]
             [4 5 6]]
+<<<<<<< HEAD
         
         All the trainning and test grid are solved correctly. 
+=======
+>>>>>>> 2e21ceceb1755daaa59c3361aeb3a1cccd7d3fbe
             
         # comment-end
     '''
@@ -109,7 +112,10 @@ def solve_3ac3eb23(x):
             [0, 3, 0],
             [3, 0, 3]]
             
+<<<<<<< HEAD
         All the trainning and test grid are solved correctly. 
+=======
+>>>>>>> 2e21ceceb1755daaa59c3361aeb3a1cccd7d3fbe
         # comment-end
     '''
     row, col = x.shape
