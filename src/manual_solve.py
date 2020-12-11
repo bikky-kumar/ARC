@@ -72,11 +72,31 @@ def solve_253bf280(x):
 
 
 def solve_3ac3eb23(x):
+    '''
+        #comment-start
+        Parameters:
+        x (numpy array): a numpy array of M X N, populated with 0 and any value z on the 0th row of the array.
+            [[0, 3, 0],
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]]
+        
+        
+        Returns:
+            a numpy array (x) of M X N dimension, with applied pattern 
+            [[0, 3, 0],
+            [3, 0, 3],
+            [0, 3, 0],
+            [3, 0, 3]]
+            
+        # comment-end
+    '''
     row, col = x.shape
     # holds, row_index, col_index, value
-    pattern = [[ 0, i, x[0][i]] for i in range(0, col) if x[0][i] !=0] 
+    pattern_on = [[ 0, i, x[0][i]] for i in range(0, col) if x[0][i] !=0] 
     
-    for each in pattern:
+    #updates values for the numpy array x for each values in pattern on.
+    for each in pattern_on:
         r, c, value = each
         i=r+1
         while(i<row):
@@ -163,3 +183,4 @@ def show_result(x, y, yhat):
     print(np.all(y == yhat))
 
 if __name__ == "__main__": main()
+
