@@ -10,17 +10,73 @@ import re
 ### result. Name them according to the task ID as in the three
 ### examples below. Delete the three examples. The tasks you choose
 ### must be in the data/training directory, not data/evaluation.
+
+'''
 def solve_0d3d703e(x):
     solve_key = {3:4, 4:3, 1:5, 2:6, 8:9, 5:1, 6:2, 9:8}
     row, col = x.shape
     return np.array([solve_key[each] for item in x for each in item]).reshape(row, col)
+'''
 
-def solve_b2862040(x):
+
+def solve_253bf280(x):
+ ''' 
+    #comment-start
+    Parameters:
+    x (numpy array): a numpy array of M X N, populated with 0 and 8.
+        [[0, 0, 0],
+        [0, 8, 0],
+        [0, 0, 0],
+        [0, 8, 0]]
+    
+    
+    Returns:
+        a numpy array (x) of M X N dimension 
+        [[0, 0, 0],
+        [0, 8, 0],
+        [0, 8, 0],
+        [0, 8, 0]]
+        
+    # comment-end
+    '''
+
+    range_to_update = list()
+    # The result is a tuple with first all the row indices, then all the column indices
+    matching_index = np.where(x==8)
+    # creating pairs of row column
+    ru = [(matching_index[0][i], matching_index[1][i]) for i in range(0, len(matching_index[0]))] 
+
+    #finding range to update
+    for i in range(0, len(ru)):
+        r1, c1 = ru[i]
+        for j in range(i+1, len(ru)):
+            r2, c2 = ru[j]
+            if r1 == r2 or c1 == c2:
+                range_to_update.append([(r1, c1), (r2, c2)])
+    
+
+    # The loop updates values of numpy array x based on the range recorded.        
+    for each in range_to_update:
+        ll, ul = each
+        if ll[0] == ul[0]:
+            j = ll[1]+1
+            while j < ul[1]:
+                x[ll[0], j] = 3
+                j +=1
+        if ll[1] == ul[1]:
+            i = ll[0]+1
+            while i < ul[0]:
+                x[i, ul[1]] = 3
+                i += 1
+
     return x
 
-def solve_05269061(x):
-    return x
 
+
+'''
+def solve_3ac3eb23(x):
+    return x
+'''
 
 def main():
     # Find all the functions defined in this file whose names are
@@ -38,12 +94,14 @@ def main():
             ID = m.group(1) # just the task ID
             solve_fn = globals()[name] # the fn itself
             tasks_solvers.append((ID, solve_fn))
+    print (tasks_solvers)
 
     for ID, solve_fn in tasks_solvers:
         # for each task, read the data and call test()
         directory = os.path.join("..", "data", "training")
         json_filename = os.path.join(directory, ID + ".json")
         data = read_ARC_JSON(json_filename)
+        #send task_id, function_name, data loaded from json file
         test(ID, solve_fn, data)
     
 def read_ARC_JSON(filepath):
@@ -68,11 +126,12 @@ def read_ARC_JSON(filepath):
 def test(taskID, solve, data):
     """Given a task ID, call the given solve() function on every
     example in the task data."""
-    print(taskID)
     train_input, train_output, test_input, test_output = data
     print("Training grids")
     for x, y in zip(train_input, train_output):
+        #print("input : \n", x)
         yhat = solve(x)
+        #print("output: \n", yhat)
         show_result(x, y, yhat)
     print("Test grids")
     for x, y in zip(test_input, test_output):
@@ -94,4 +153,3 @@ def show_result(x, y, yhat):
     print(np.all(y == yhat))
 
 if __name__ == "__main__": main()
-
