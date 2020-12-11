@@ -5,14 +5,31 @@ import json
 import numpy as np
 import re
 
-### YOUR CODE HERE: write at least three functions which solve
-### specific tasks by transforming the input x and returning the
-### result. Name them according to the task ID as in the three
-### examples below. Delete the three examples. The tasks you choose
-### must be in the data/training directory, not data/evaluation.
+### Name: Bikky Kumar
+### Student Id: 20235900
+### url: https://github.com/bikky-kumar/ARC.git
 
 
 def solve_0d3d703e(x):
+    '''
+        #comment-start
+        Parameters:
+        x (numpy array): a numpy array of M X N dimension, populated with any value from 1 to 9.
+            [[3 1 2]
+            [3 1 2]
+            [3 1 2]]
+      
+          
+        Returns:
+            a numpy array (x) of M X N dimension with swapped values
+            [[4 5 6]
+            [4 5 6]
+            [4 5 6]]
+            
+        # comment-end
+    '''
+    
+    # to solve the pattern in this problem, the memory needs to be build to hold the sawp values. 
     solve_key = {3:4, 4:3, 1:5, 2:6, 8:9, 5:1, 6:2, 9:8}
     row, col = x.shape
     return np.array([solve_key[each] for item in x for each in item]).reshape(row, col)
@@ -42,7 +59,7 @@ def solve_253bf280(x):
     range_to_update = list()
     # The result is a tuple with first all the row indices, then all the column indices
     matching_index = np.where(x==8)
-    # creating pairs of row column
+    # creating pairs of row column from matching_index
     ru = [(matching_index[0][i], matching_index[1][i]) for i in range(0, len(matching_index[0]))] 
 
     #finding range to update
@@ -95,7 +112,7 @@ def solve_3ac3eb23(x):
     # holds, row_index, col_index, value
     pattern_on = [[ 0, i, x[0][i]] for i in range(0, col) if x[0][i] !=0] 
     
-    #updates values for the numpy array x for each values in pattern on.
+    #updates values for the numpy array x for each value recorded in pattern_on.
     for each in pattern_on:
         r, c, value = each
         i=r+1
