@@ -11,35 +11,34 @@ import re
 ### examples below. Delete the three examples. The tasks you choose
 ### must be in the data/training directory, not data/evaluation.
 
-'''
+
 def solve_0d3d703e(x):
     solve_key = {3:4, 4:3, 1:5, 2:6, 8:9, 5:1, 6:2, 9:8}
     row, col = x.shape
     return np.array([solve_key[each] for item in x for each in item]).reshape(row, col)
-'''
+
 
 
 def solve_253bf280(x):
- ''' 
-    #comment-start
-    Parameters:
-    x (numpy array): a numpy array of M X N, populated with 0 and 8.
-        [[0, 0, 0],
-        [0, 8, 0],
-        [0, 0, 0],
-        [0, 8, 0]]
-    
-    
-    Returns:
-        a numpy array (x) of M X N dimension 
-        [[0, 0, 0],
-        [0, 8, 0],
-        [0, 8, 0],
-        [0, 8, 0]]
-        
-    # comment-end
     '''
-
+        #comment-start
+        Parameters:
+        x (numpy array): a numpy array of M X N, populated with 0 and 8.
+            [[0, 0, 0],
+            [0, 8, 0],
+            [0, 0, 0],
+            [0, 8, 0]]
+        
+        
+        Returns:
+            a numpy array (x) of M X N dimension 
+            [[0, 0, 0],
+            [0, 8, 0],
+            [0, 8, 0],
+            [0, 8, 0]]
+            
+        # comment-end
+    '''
     range_to_update = list()
     # The result is a tuple with first all the row indices, then all the column indices
     matching_index = np.where(x==8)
@@ -72,11 +71,22 @@ def solve_253bf280(x):
     return x
 
 
-
-'''
 def solve_3ac3eb23(x):
+    row, col = x.shape
+    # holds, row_index, col_index, value
+    pattern = [[ 0, i, x[0][i]] for i in range(0, col) if x[0][i] !=0] 
+    
+    for each in pattern:
+        r, c, value = each
+        i=r+1
+        while(i<row):
+            x[i][c-1] = value
+            x[i][c+1] = value
+            i = i+1
+            if i< row:
+                x[i][c] = value
+                i = i+1
     return x
-'''
 
 def main():
     # Find all the functions defined in this file whose names are
