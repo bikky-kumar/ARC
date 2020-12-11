@@ -68,11 +68,12 @@ When you're done with a task, use the "load task" button to open a new task.
 
 ### Task solved by Bikky Kumar 
 #### Task 1 - 0d3d703e
-![0d3d703e](https://github.com/bikky-kumar/ARC/blob/master/images/0d3d703e.JPG)
+<img src="https://github.com/bikky-kumar/ARC/blob/master/images/0d3d703e.JPG" width="450" height="500" />
+
 
 #### Task 2 - 253bf280
-![253bf280](https://github.com/bikky-kumar/ARC/blob/master/images/253bf280.JPG)
+<img src="https://github.com/bikky-kumar/ARC/blob/master/images/253bf280.JPG" width="450" height="500" />
 
 #### Task 3 - 253bf280
-![3ac3eb23](https://github.com/bikky-kumar/ARC/blob/master/images/3ac3eb23.JPG)
+<img src="https://github.com/bikky-kumar/ARC/blob/master/images/3ac3eb23.JPG" width="450" height="450" />
 
