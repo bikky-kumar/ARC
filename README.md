@@ -67,8 +67,8 @@ When you're done with a task, use the "load task" button to open a new task.
 
 
 ### Task solved by Bikky Kumar 
-#### Task 1 - 0d3d703e
-<img src="https://github.com/bikky-kumar/ARC/blob/master/images/0d3d703e.JPG" width="450" height="500" />
+#### Task 1 - 6d75e8bb
+<img src="https://github.com/bikky-kumar/ARC/blob/master/images/6d75e8bb.JPG" width="450" height="500" />
 
 
 #### Task 2 - 253bf280
