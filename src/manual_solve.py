@@ -8,41 +8,76 @@ import re
 ### Name: Bikky Kumar
 ### Student Id: 20235900
 ### url: https://github.com/bikky-kumar/ARC.git
+### further details on tasks solved is also added on readme.md file
 
 
-def solve_0d3d703e(x):
+def solve_6d75e8bb(x):
     '''
         #comment-start
         Parameters:
-        x (numpy array): a numpy array of M X N dimension, populated with any value from 1 to 9.
-            [[3 1 2]
-            [3 1 2]
-            [3 1 2]]
+        x (numpy array): a numpy array of M X N dimension, populated with values 0 and 8.
+            [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 8, 8, 8, 0, 0, 0, 0, 0, 0],
+            [0, 8, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 8, 8, 8, 8, 0, 0, 0, 0, 0],
+            [0, 8, 8, 0, 0, 0, 0, 0, 0, 0],
+            [0, 8, 8, 8, 0, 0, 0, 0, 0, 0],
+            [0, 8, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 8, 8, 8, 0, 0, 0, 0, 0, 0],
+            [0, 8, 8, 8, 0, 0, 0, 0, 0, 0],
+            [0, 8, 8, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+
       
           
         Returns:
-            a numpy array (x) of M X N dimension with swapped values
-            [[4 5 6]
-            [4 5 6]
-            [4 5 6]]
-<<<<<<< HEAD
+            a numpy array (x) of M X N dimension with updated values to 2 by the pattern
+            [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 8, 8, 8, 2, 0, 0, 0, 0, 0],
+            [0, 8, 2, 2, 2, 0, 0, 0, 0, 0],
+            [0, 8, 8, 8, 8, 0, 0, 0, 0, 0],
+            [0, 8, 8, 2, 2, 0, 0, 0, 0, 0],
+            [0, 8, 8, 8, 2, 0, 0, 0, 0, 0],
+            [0, 8, 2, 2, 2, 0, 0, 0, 0, 0],
+            [0, 8, 8, 8, 2, 0, 0, 0, 0, 0],
+            [0, 8, 8, 8, 2, 0, 0, 0, 0, 0],
+            [0, 8, 8, 2, 2, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
         
         All the trainning and test grid are solved correctly. 
-=======
->>>>>>> 2e21ceceb1755daaa59c3361aeb3a1cccd7d3fbe
             
         # comment-end
     '''
+    boundaries = np.where(x==8)
+    ru = [(boundaries[0][i], boundaries[1][i]) for i in range(0, len(boundaries[0]))] 
+   
+   
+    rows = [each[0] for each in ru]
+    columns= [each[1] for each in ru]
+    #column range to populate with 2
+    col_range = min(columns), max(columns)
+    #row range to populate with 2
+    row_range = min(rows), max(rows)
+
+    for i in range(row_range[0],row_range[1]+1):
+        for j in range(col_range[0], col_range[1]+1):
+            #check if it is already populated with 8
+            if x[i][j] != 8:
+                x[i][j] = 2
     
-    # to solve the pattern in this problem, the memory needs to be build to hold the sawp values. 
-    solve_key = {3:4, 4:3, 1:5, 2:6, 8:9, 5:1, 6:2, 9:8}
-    row, col = x.shape
-    return np.array([solve_key[each] for item in x for each in item]).reshape(row, col)
+    return x
 
 
 
 def solve_253bf280(x):
-    '''
+  
+    '''  
         #comment-start
         Parameters:
         x (numpy array): a numpy array of M X N, populated with 0 and 8.
@@ -60,8 +95,9 @@ def solve_253bf280(x):
             [0, 8, 0]]
         
         All the trainning and test grid are solved correctly. 
-        # comment-end
+        # comment-end 
     '''
+
     range_to_update = list()
     # The result is a tuple with first all the row indices, then all the column indices
     matching_index = np.where(x==8)
@@ -94,8 +130,10 @@ def solve_253bf280(x):
     return x
 
 
+
 def solve_3ac3eb23(x):
-    '''
+ 
+    '''        
         #comment-start
         Parameters:
         x (numpy array): a numpy array of M X N, populated with 0 and any value z on the 0th row of the array.
@@ -112,10 +150,7 @@ def solve_3ac3eb23(x):
             [0, 3, 0],
             [3, 0, 3]]
             
-<<<<<<< HEAD
         All the trainning and test grid are solved correctly. 
-=======
->>>>>>> 2e21ceceb1755daaa59c3361aeb3a1cccd7d3fbe
         # comment-end
     '''
     row, col = x.shape
